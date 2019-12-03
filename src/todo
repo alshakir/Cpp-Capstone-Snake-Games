@@ -1,0 +1,6 @@
+1- remove any raw pointer and replace it with the proper one
+2- make randomizer generic
+3- use images
+4- make sure you have mutix lock
+5- make sure you have con_var implemented
+6- make sure you have file write and read implemented

@@ -1,6 +1,10 @@
 #include "renderer.h"
 #include <iostream>
 #include <string>
+#include "mine.h"
+#include <thread>
+#include "car.h"
+#include "obstacle.h"
 
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
@@ -38,7 +42,7 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food) {
+void Renderer::Render( std::vector<Obstacle*> obst, std::vector<Car*> carObjects) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -48,28 +52,87 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderClear(sdl_renderer);
 
   // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
-  block.x = food.x * block.w;
-  block.y = food.y * block.h;
-  SDL_RenderFillRect(sdl_renderer, &block);
+  // SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+  // block.x = food.x * block.w;
+  // block.y = food.y * block.h;
+  
+  // SDL_RenderFillRect(sdl_renderer, &block);
+
+
 
   // Render snake's body
-  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  for (SDL_Point const &point : snake.body) {
-    block.x = point.x * block.w;
-    block.y = point.y * block.h;
+  // SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  // for (SDL_Point const &point : snake.body) {
+  //   block.x = point.x * block.w;
+  //   block.y = point.y * block.h;
+  //   SDL_RenderFillRect(sdl_renderer, &block);
+  // }
+
+  // // Render snake's head
+  // block.x = static_cast<int>(snake.head_x) * block.w;
+  // block.y = static_cast<int>(snake.head_y) * block.h;
+  // if (snake.alive) {
+  //   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+  // } else {
+  //   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  // }
+  // SDL_RenderFillRect(sdl_renderer, &block);
+
+//render the center block
+// SDL_SetRenderDrawColor(sdl_renderer, 0xC0, 0xC0, 0xC0, 0x11);
+//   int xcenter = screen_width/2;
+//   int ycenter = screen_height/2;
+
+//   block.h = grid_height * 4;
+//   block.w = grid_width * 4;
+
+//   block.x = xcenter - (block.w/2);
+//   block.y = ycenter - (block.h/2);
+// SDL_RenderFillRect(sdl_renderer, &block);
+
+// //reset block width and height 
+
+//   block.h = grid_height ;
+//   block.w = grid_width ;
+
+// // Render The mine
+//   SDL_SetRenderDrawColor(sdl_renderer, 0xCC, 0xFF, 0xCC, 0xFF);
+//   block.x = mine.get_xpos();
+//   block.y = mine.get_ypos();
+//   SDL_RenderFillRect(sdl_renderer, &block);
+
+
+//render mines
+SDL_SetRenderDrawColor(sdl_renderer, 0xCC, 0xFF, 0xCC, 0xFF);
+  for ( auto m : obst){
+    //std::cout << m <<std::endl;
+    block.x = m->get_xpos();
+    block.y = m->get_ypos();
     SDL_RenderFillRect(sdl_renderer, &block);
   }
 
-  // Render snake's head
-  block.x = static_cast<int>(snake.head_x) * block.w;
-  block.y = static_cast<int>(snake.head_y) * block.h;
-  if (snake.alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-  } else {
-    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+
+
+//render mines
+// SDL_SetRenderDrawColor(sdl_renderer, 0xCC, 0xFF, 0xCC, 0xFF);
+//   for ( int i = 0; i<3; i++){
+//     //std::cout << m <<std::endl;
+//     block.x = mines[i]->get_xpos();
+//     block.y = mines[i]->get_ypos();
+//     SDL_RenderFillRect(sdl_renderer, &block);
+//   }
+
+
+//render cars
+SDL_SetRenderDrawColor(sdl_renderer, 0x99, 0x00, 0xFF, 0xFF);
+  for ( auto c : carObjects){
+    block.x = c->get_xpos();
+    block.y = c->get_ypos();
+    SDL_RenderFillRect(sdl_renderer, &block);
   }
-  SDL_RenderFillRect(sdl_renderer, &block);
+
+
+
 
   // Update Screen
   SDL_RenderPresent(sdl_renderer);
