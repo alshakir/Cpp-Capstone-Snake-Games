@@ -1,7 +1,7 @@
 #ifndef OBSTACLE_H
 #define OBSTACLE_H
 
-
+#include <memory>
 #include <string>
 #include <iostream>
 #include <vector>
@@ -11,8 +11,8 @@ class Obstacle {
 
 
 public:
-    Obstacle(int x, int y,int limit, int speed, std::string axis, std::vector<Car*> cars):_xpos(x), _ypos(y), _limit(limit), _speed(speed), _axis(axis), _cars(cars){
-        std::cout <<"creating obstacle";
+    Obstacle(int x, int y,int limit, int speed, std::string axis, std::vector<std::shared_ptr<Car>> cars):_xpos(x), _ypos(y), _limit(limit), _speed(speed), _axis(axis), _cars(cars){
+        //std::cout <<"creating obstacle";
     };
     //copy cstr
     Obstacle(const Obstacle& src);
@@ -49,7 +49,7 @@ private:
     int _speed;
     int  _limit;
     std::string _axis;
-    std::vector<Car*> _cars;
+    std::vector<std::shared_ptr<Car>> _cars;
    
 
 };

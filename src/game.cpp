@@ -1,7 +1,6 @@
 #include "game.h"
 #include <iostream>
 #include "SDL.h"
-#include "mine.h"
 #include <thread>
 #include "car.h"
 #include "mycontroller.h"
@@ -10,12 +9,13 @@
 #include <string>
 
 
-Game::Game(std::size_t grid_width, std::size_t grid_height)
-    : engine(dev()),
-      random_w(0, static_cast<int>(grid_width)),
-      random_h(0, static_cast<int>(grid_height)) {
-  PlaceFood();
-}
+// Game::Game(std::size_t grid_width, std::size_t grid_height)
+//     : engine(dev()),
+//       random_w(0, static_cast<int>(grid_width)),
+//       random_h(0, static_cast<int>(grid_height)) {
+  
+  
+// }
 
 void Game::Run( Renderer &renderer,
                std::size_t target_frame_duration, int level) {
@@ -27,64 +27,55 @@ void Game::Run( Renderer &renderer,
   bool running = true;
 
 
-      Car car1 {470, 510, 640,-1, "horizontal"};
-      Car car2 {605, 515, 640, -1, "vertical"};
+//---------Cars ---------------
+  std::shared_ptr<Car> car1( new Car {470, 510, 640,-1, "horizontal"});
+  std::shared_ptr<Car> car2 (new Car {605, 515, 640, -1, "vertical"});
 
-      std::vector<std::thread> cars ;
-      cars.emplace_back(std::thread(&Car::move, &car1));
-      cars.emplace_back(std::thread(&Car::move, &car2));
-
-      std::vector<Car*> carObjects {&car1, &car2};
-
-
+  std::vector<std::thread> cars ;
+  cars.emplace_back(std::thread(&Car::move, car1));
+  cars.emplace_back(std::thread(&Car::move, car2));
+  std::vector<std::shared_ptr<Car>> carObjects {car1,car2};
+//-------------------------------
 
 
-std::vector<Obstacle> obstacles;
 
-for( int i = 0 ; i < level * 3; i++){
-  int x = Randomizer::genRand(1,600);
-  int y = Randomizer::genRand(1,600);
-  int d = Randomizer::genRand(1,2);
-  std::string direction = "vertical";
+//--------Obstacles --------------
+  std::vector<Obstacle> obstacles;
 
-  if(d==1){
-    direction = "horizontal";
+  for( int i = 0 ; i < level * 3; i++){
+    int x = Randomizer::genRand(1,600);
+    int y = Randomizer::genRand(1,600);
+    int d = Randomizer::genRand(1,2);
+    std::string direction = "vertical";
+
+    if(d==1){
+      direction = "horizontal";
+    }
+    //creating more obstacles (in every level)
+    Obstacle obstacle {x,y, 600,1,direction,carObjects};
+    obstacles.emplace_back(std::move(obstacle));
   }
-  Obstacle obstacle {x,y, 600,1,direction,carObjects};
-  obstacles.emplace_back(std::move(obstacle));
+  std::vector<std::thread> obstacleThreads;
 
-}
-  // Mine mine1{50,70};
-  // Mine mine2{150,70};  
-  // Mine mine3{500,170};
-
-  std::vector<Obstacle*> obstaclesPtr;
-//for( Obstacle& o : obstacles){
-   for( int i = 0 ; i < level * 3; i++){
-    obstaclesPtr.emplace_back(&obstacles[i]);
-}
-std::vector<std::thread> obstacleThreads;
-//for( Obstacle& o : obstacles){
-   for( int i = 0 ; i < level * 3; i++){
-    obstacleThreads.emplace_back(std::thread(&Obstacle::move,obstaclesPtr[i]));
-}
+  for ( auto& o : obstacles){
+    obstacleThreads.emplace_back(std::thread(&Obstacle::move,&o));
+  }
+//-------------------------------
 
 
 
-
-    
   while (running) {
     frame_start = SDL_GetTicks();
 
-    // Input, Update, Render - the main game loop.
-    //controller.HandleInput(running, snake);
+    // Input, [Update,] Render - the main game loop.
+    //notice that the controller is automatically updating the object positions
+    //so no need to create a method update()
     Mycontroller::HandleInput(running,car1,car2);
 
-    Update();
-
-    //update
-    if(car1.isActive()==false && car2.isActive() ==false){
-       if(car1.get_success()==true && car2.get_success() ==true){
+    
+  // if cars are deactivated, then either reset or move to a new level
+    if(car1->isActive()==false && car2->isActive() ==false){
+       if(car1->get_success()==true && car2->get_success() ==true){
           running = false;
           score++;
           score *= level;
@@ -93,28 +84,30 @@ std::vector<std::thread> obstacleThreads;
           }
       }else{
 
-      car1.set_xpos(600);
-      car1.set_ypos(500);
-      car2.set_xpos(500);
-      car2.set_ypos(600);
-      car1.set_active(true);
-      car2.set_active(true);
+      for(auto& c : cars){
+        //std::cout <<"trying to join\n"<<std::endl;
+        c.join();
+        //std::cout <<"success  join\n"<<std::endl;
+      }
 
-        for(auto& c : cars){
-           c.join();
-        }
+      car1->set_xpos(500);
+      car1->set_ypos(500);
+      car2->set_xpos(450);
+      car2->set_ypos(600);
+      car1->set_active(true);
+      car2->set_active(true);
        
-       cars.pop_back();
-       cars.pop_back();
+      cars.pop_back();
+      cars.pop_back();
        
-      cars.emplace_back(std::thread(&Car::move, &car1));
-      cars.emplace_back(std::thread(&Car::move, &car2));
+      cars.emplace_back(std::thread(&Car::move, car1));
+      cars.emplace_back(std::thread(&Car::move, car2));
       }
 
     }
 
     
-    renderer.Render( obstaclesPtr, carObjects);
+    renderer.Render(obstacles, carObjects);
 
     frame_end = SDL_GetTicks();
 
@@ -138,23 +131,14 @@ std::vector<std::thread> obstacleThreads;
     }
   }
 
-// for( auto& ob : obstaclesPtr){
-//   std::cout << ob;
-//   delete ob;
-  
-// }
- 
-//  for (auto& c : carObjects){
-//    delete c;
-//  } 
 
 // make sure that all threads will stop and join
-    for(auto& o : obstacles){
-      o.deactivate();
-    }
+  for(auto& o : obstacles){
+    o.deactivate();
+  }
   
-  car1.deactivate();
-  car2.deactivate();
+  car1->deactivate();
+  car2->deactivate();
 
 for( auto& t : cars){
   t.join();
@@ -165,41 +149,8 @@ for(auto& t : obstacleThreads){
 }
 }
 
-void Game::PlaceFood() {
-  // int x, y;
-  // while (true) {
-  //   x = random_w(engine);
-  //   y = random_h(engine);
 
-  //   // Check that the location is not occupied by a snake item before placing
-  //   // food.
-  //   if (!snake.SnakeCell(x, y)) {
-  //     food.x = x;
-  //     food.y = y;
-  //     return;
-  //   }
-  // }
-}
 
-void Game::Update() {
-  // if (!snake.alive) return;
 
-  // snake.Update();
-
-  // int new_x = static_cast<int>(snake.head_x);
-  // int new_y = static_cast<int>(snake.head_y);
-
-  // // Check if there's food over here
-  // if (food.x == new_x && food.y == new_y) {
-  //   score++;
-  //   PlaceFood();
-  //   // Grow snake and increase speed.
-  //   snake.GrowBody();
-  //   snake.speed += 0.02;
-  // }
-
-  //mine.move(1,2,600);
-}
 
 int Game::GetScore() const { return score; }
-int Game::GetSize() const { return 1; }

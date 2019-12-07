@@ -4,7 +4,6 @@
 #include <vector>
 #include "SDL.h"
 #include "snake.h"
-#include "mine.h"
 #include <thread>
 #include "car.h"
 #include "obstacle.h"
@@ -15,7 +14,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
-  void Render(std::vector<Obstacle*> obst, std::vector<Car*> carObjects);
+  void Render(std::vector<Obstacle>& obst, std::vector<std::shared_ptr<Car>> carObjects);
   void UpdateWindowTitle(int score, int fps);
 
  private:

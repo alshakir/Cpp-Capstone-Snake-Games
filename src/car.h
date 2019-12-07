@@ -9,6 +9,10 @@ class Car{
 public:
 
     Car(int x, int y,int limit, int speed, std::string axis):_xpos(x), _ypos(y), _limit(limit), _speed(speed), _axis(axis){}
+    
+    //copy cstr
+    Car(Car& src);
+    
     void move();
     int newPos(int pos);
 

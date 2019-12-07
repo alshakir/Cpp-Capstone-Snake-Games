@@ -3,12 +3,13 @@
 
 #include "car.h"
 #include "SDL.h"
+#include <memory>
 
 class Mycontroller {
 public:
 
-    static void HandleInput(bool &running, Car &car1, Car &car2)  ;
-    static void control(Car& car, SDL_Event& e);
+    static void HandleInput(bool &running, std::shared_ptr<Car> car1,std::shared_ptr<Car> car2)  ;
+    static void control( std::shared_ptr<Car> car, SDL_Event& e);
     static bool switchCars ;
     static bool quit ;
     static int highestScore;

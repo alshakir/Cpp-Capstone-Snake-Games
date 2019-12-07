@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/shakir/capstone/CppND-Capstone-Snake-Game/src/controller.cpp" "/home/shakir/capstone/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/controller.cpp.o"
   "/home/shakir/capstone/CppND-Capstone-Snake-Game/src/game.cpp" "/home/shakir/capstone/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/game.cpp.o"
   "/home/shakir/capstone/CppND-Capstone-Snake-Game/src/main.cpp" "/home/shakir/capstone/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/main.cpp.o"
-  "/home/shakir/capstone/CppND-Capstone-Snake-Game/src/mine.cpp" "/home/shakir/capstone/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/mine.cpp.o"
   "/home/shakir/capstone/CppND-Capstone-Snake-Game/src/mycontroller.cpp" "/home/shakir/capstone/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/mycontroller.cpp.o"
   "/home/shakir/capstone/CppND-Capstone-Snake-Game/src/obstacle.cpp" "/home/shakir/capstone/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/obstacle.cpp.o"
   "/home/shakir/capstone/CppND-Capstone-Snake-Game/src/renderer.cpp" "/home/shakir/capstone/CppND-Capstone-Snake-Game/build/CMakeFiles/SnakeGame.dir/src/renderer.cpp.o"

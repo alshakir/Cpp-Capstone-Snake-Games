@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/DualGame.dir/src/main.cpp.o CMakeFiles/DualGame.dir/src/game.cpp.o CMakeFiles/DualGame.dir/src/controller.cpp.o CMakeFiles/DualGame.dir/src/renderer.cpp.o CMakeFiles/DualGame.dir/src/snake.cpp.o CMakeFiles/DualGame.dir/src/car.cpp.o CMakeFiles/DualGame.dir/src/mycontroller.cpp.o CMakeFiles/DualGame.dir/src/obstacle.cpp.o  -o DualGame -lSDL2 -lpthread 

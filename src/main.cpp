@@ -28,13 +28,13 @@ void logHighestScore(int& score){
 
   oldResult.open("result.txt", std::ios::in);
   if(!oldResult){
-    std::cerr << "file not available..failed to open a file\n" ;
+    std::cerr << "\nfile not available..failed to open a file\n" ;
     oldResult.clear();
   } else{
     try{  
       std::getline(oldResult,input);
       r = std::stoi(input);
-      std::cout<<"Done reading from file\n";
+      std::cout<<"\nDone reading from file\n";
 
       Mycontroller::highestScore = r;
     }catch(std::exception& e){
@@ -46,19 +46,19 @@ void logHighestScore(int& score){
 
  
 bool newScore = r < score;
-std::cout << "new score is " << newScore <<std::endl;
-std::cout << "r = " << r << std::endl;
+// std::cout << "\nnew score is " << newScore <<std::endl;
+// std::cout << "r = " << r << std::endl;
 
 std::cout << "score = " << score << std::endl;
 
   if(newScore){
     result.open("result.txt", std::ios::out);
     if(!result){
-      std::cerr << "failed to create ..file not available\n" ;
+      std::cerr << "\nfailed to create ..file not available\n" ;
     }
     else{
       result << score;
-      std::cout<<"wrote into file\n";
+      std::cout<<"\nwrote into file\n";
     }
     result.close();
   }
@@ -77,25 +77,20 @@ int main() {
 
   std::thread t(logHighestScore, std::ref(score));
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
-  //Controller controller;
-  
-  Game game(kGridWidth, kGridHeight);
-  while (true){
-   
 
+
+  Game game;
+  while (true){
     score = game.GetScore();
-    std::cout <<score <<"---------\n";
-    con_var.notify_all();
-    std::cout << "trying to start loop in the game levels!..level= "<<level<<std::endl;;
-    game.Run( renderer, kMsPerFrame, level);
-     level++;
-    std::cout << "finished level = " << level << std::endl;
     
+    con_var.notify_all();
+    game.Run( renderer, kMsPerFrame, level);
+    std::cout << "finished level = " << level << std::endl;
+    level++;
     if(Mycontroller::quit)break;
   }
   
-  //std::cout << "Score: " << game.GetScore() << "\n";
-  //std::cout << "Size: " << game.GetSize() << "\n";
+
   con_var.notify_all();
   t.join();
 

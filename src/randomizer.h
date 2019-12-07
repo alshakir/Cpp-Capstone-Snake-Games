@@ -9,12 +9,13 @@ class Randomizer
 private:
     /* data */
 public:
-    static int genRand(int min, int max);
+    template<typename T>
+    static T genRand(T min, T max);
   
   
 };
-
-int Randomizer::genRand(int min, int max){
+template<typename T>
+T Randomizer::genRand(T min, T max){
 
     std::random_device dev;
     std::mt19937 eng(dev());

@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SnakeGame
+# Target rules for targets named DualGame
 
 # Build rule for target.
-SnakeGame: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 SnakeGame
-.PHONY : SnakeGame
+DualGame: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DualGame
+.PHONY : DualGame
 
 # fast build rule for target.
-SnakeGame/fast:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/build
-.PHONY : SnakeGame/fast
+DualGame/fast:
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/build
+.PHONY : DualGame/fast
 
 src/car.o: src/car.cpp.o
 
@@ -129,7 +129,7 @@ src/car.o: src/car.cpp.o
 
 # target to build an object file
 src/car.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/car.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/car.cpp.o
 .PHONY : src/car.cpp.o
 
 src/car.i: src/car.cpp.i
@@ -138,7 +138,7 @@ src/car.i: src/car.cpp.i
 
 # target to preprocess a source file
 src/car.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/car.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/car.cpp.i
 .PHONY : src/car.cpp.i
 
 src/car.s: src/car.cpp.s
@@ -147,7 +147,7 @@ src/car.s: src/car.cpp.s
 
 # target to generate assembly for a file
 src/car.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/car.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/car.cpp.s
 .PHONY : src/car.cpp.s
 
 src/controller.o: src/controller.cpp.o
@@ -156,7 +156,7 @@ src/controller.o: src/controller.cpp.o
 
 # target to build an object file
 src/controller.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/controller.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/controller.cpp.o
 .PHONY : src/controller.cpp.o
 
 src/controller.i: src/controller.cpp.i
@@ -165,7 +165,7 @@ src/controller.i: src/controller.cpp.i
 
 # target to preprocess a source file
 src/controller.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/controller.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/controller.cpp.i
 .PHONY : src/controller.cpp.i
 
 src/controller.s: src/controller.cpp.s
@@ -174,7 +174,7 @@ src/controller.s: src/controller.cpp.s
 
 # target to generate assembly for a file
 src/controller.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/controller.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/controller.cpp.s
 .PHONY : src/controller.cpp.s
 
 src/game.o: src/game.cpp.o
@@ -183,7 +183,7 @@ src/game.o: src/game.cpp.o
 
 # target to build an object file
 src/game.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/game.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/game.cpp.o
 .PHONY : src/game.cpp.o
 
 src/game.i: src/game.cpp.i
@@ -192,7 +192,7 @@ src/game.i: src/game.cpp.i
 
 # target to preprocess a source file
 src/game.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/game.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/game.cpp.i
 .PHONY : src/game.cpp.i
 
 src/game.s: src/game.cpp.s
@@ -201,7 +201,7 @@ src/game.s: src/game.cpp.s
 
 # target to generate assembly for a file
 src/game.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/game.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/game.cpp.s
 .PHONY : src/game.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -210,7 +210,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -219,7 +219,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -228,35 +228,8 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
-
-src/mine.o: src/mine.cpp.o
-
-.PHONY : src/mine.o
-
-# target to build an object file
-src/mine.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/mine.cpp.o
-.PHONY : src/mine.cpp.o
-
-src/mine.i: src/mine.cpp.i
-
-.PHONY : src/mine.i
-
-# target to preprocess a source file
-src/mine.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/mine.cpp.i
-.PHONY : src/mine.cpp.i
-
-src/mine.s: src/mine.cpp.s
-
-.PHONY : src/mine.s
-
-# target to generate assembly for a file
-src/mine.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/mine.cpp.s
-.PHONY : src/mine.cpp.s
 
 src/mycontroller.o: src/mycontroller.cpp.o
 
@@ -264,7 +237,7 @@ src/mycontroller.o: src/mycontroller.cpp.o
 
 # target to build an object file
 src/mycontroller.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/mycontroller.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/mycontroller.cpp.o
 .PHONY : src/mycontroller.cpp.o
 
 src/mycontroller.i: src/mycontroller.cpp.i
@@ -273,7 +246,7 @@ src/mycontroller.i: src/mycontroller.cpp.i
 
 # target to preprocess a source file
 src/mycontroller.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/mycontroller.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/mycontroller.cpp.i
 .PHONY : src/mycontroller.cpp.i
 
 src/mycontroller.s: src/mycontroller.cpp.s
@@ -282,7 +255,7 @@ src/mycontroller.s: src/mycontroller.cpp.s
 
 # target to generate assembly for a file
 src/mycontroller.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/mycontroller.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/mycontroller.cpp.s
 .PHONY : src/mycontroller.cpp.s
 
 src/obstacle.o: src/obstacle.cpp.o
@@ -291,7 +264,7 @@ src/obstacle.o: src/obstacle.cpp.o
 
 # target to build an object file
 src/obstacle.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/obstacle.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/obstacle.cpp.o
 .PHONY : src/obstacle.cpp.o
 
 src/obstacle.i: src/obstacle.cpp.i
@@ -300,7 +273,7 @@ src/obstacle.i: src/obstacle.cpp.i
 
 # target to preprocess a source file
 src/obstacle.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/obstacle.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/obstacle.cpp.i
 .PHONY : src/obstacle.cpp.i
 
 src/obstacle.s: src/obstacle.cpp.s
@@ -309,7 +282,7 @@ src/obstacle.s: src/obstacle.cpp.s
 
 # target to generate assembly for a file
 src/obstacle.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/obstacle.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/obstacle.cpp.s
 .PHONY : src/obstacle.cpp.s
 
 src/renderer.o: src/renderer.cpp.o
@@ -318,7 +291,7 @@ src/renderer.o: src/renderer.cpp.o
 
 # target to build an object file
 src/renderer.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/renderer.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/renderer.cpp.o
 .PHONY : src/renderer.cpp.o
 
 src/renderer.i: src/renderer.cpp.i
@@ -327,7 +300,7 @@ src/renderer.i: src/renderer.cpp.i
 
 # target to preprocess a source file
 src/renderer.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/renderer.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/renderer.cpp.i
 .PHONY : src/renderer.cpp.i
 
 src/renderer.s: src/renderer.cpp.s
@@ -336,7 +309,7 @@ src/renderer.s: src/renderer.cpp.s
 
 # target to generate assembly for a file
 src/renderer.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/renderer.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/renderer.cpp.s
 .PHONY : src/renderer.cpp.s
 
 src/snake.o: src/snake.cpp.o
@@ -345,7 +318,7 @@ src/snake.o: src/snake.cpp.o
 
 # target to build an object file
 src/snake.cpp.o:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/snake.cpp.o
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/snake.cpp.o
 .PHONY : src/snake.cpp.o
 
 src/snake.i: src/snake.cpp.i
@@ -354,7 +327,7 @@ src/snake.i: src/snake.cpp.i
 
 # target to preprocess a source file
 src/snake.cpp.i:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/snake.cpp.i
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/snake.cpp.i
 .PHONY : src/snake.cpp.i
 
 src/snake.s: src/snake.cpp.s
@@ -363,7 +336,7 @@ src/snake.s: src/snake.cpp.s
 
 # target to generate assembly for a file
 src/snake.cpp.s:
-	$(MAKE) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/src/snake.cpp.s
+	$(MAKE) -f CMakeFiles/DualGame.dir/build.make CMakeFiles/DualGame.dir/src/snake.cpp.s
 .PHONY : src/snake.cpp.s
 
 # Help Target
@@ -373,7 +346,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... SnakeGame"
+	@echo "... DualGame"
 	@echo "... edit_cache"
 	@echo "... src/car.o"
 	@echo "... src/car.i"
@@ -387,9 +360,6 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/mine.o"
-	@echo "... src/mine.i"
-	@echo "... src/mine.s"
 	@echo "... src/mycontroller.o"
 	@echo "... src/mycontroller.i"
 	@echo "... src/mycontroller.s"

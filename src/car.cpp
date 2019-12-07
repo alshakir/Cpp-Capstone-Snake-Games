@@ -6,7 +6,18 @@
 #include <mutex>
 
 
-
+//copy constr
+Car::Car(Car& src){
+     _xpos = src._xpos;
+    _ypos = src._ypos;
+     _delay = src._delay;
+     _active = src._active;
+     _speed = src._speed;
+      _limit = src._limit;
+     _axis = src._axis;
+     _succeeded = src._succeeded;
+//     mtx = src.mtx; // mtx is not assignable 
+};
     void Car::move(){
         // horizontal
         // vertical
@@ -35,6 +46,8 @@
                 {
                     _succeeded = true;
                 }
+
+                //std::cout  << std::this_thread::get_id()<< " thread is ending\n"<< std::endl;
     };
 
     int Car::newPos(int pos){
@@ -98,9 +111,11 @@
     }
 
 bool Car::isActive(){
+    std::lock_guard lck(mtx);
     return _active;
 }
   
   void Car::set_active(bool a){
+      std::lock_guard lck(mtx);
       _active = a;
   };
