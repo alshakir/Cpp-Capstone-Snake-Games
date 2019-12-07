@@ -5,6 +5,7 @@
 #include <thread>
 #include "car.h"
 #include "obstacle.h"
+#include "mycontroller.h"
 
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
@@ -17,6 +18,8 @@ Renderer::Renderer(const std::size_t screen_width,
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     std::cerr << "SDL could not initialize.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+
+
   }
 
   // Create Window
@@ -35,6 +38,13 @@ Renderer::Renderer(const std::size_t screen_width,
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
+
+  
+  winSurface = SDL_GetWindowSurface(sdl_window);
+  endbmp = SDL_LoadBMP("./flag.bmp");
+  tex = SDL_CreateTextureFromSurface(sdl_renderer,endbmp);
+  carBmp = SDL_LoadBMP("./car.bmp");
+texCar = SDL_CreateTextureFromSurface(sdl_renderer,carBmp);
 }
 
 Renderer::~Renderer() {
@@ -44,6 +54,17 @@ Renderer::~Renderer() {
 
 void Renderer::Render( std::vector<Obstacle*> obst, std::vector<Car*> carObjects) {
   SDL_Rect block;
+ SDL_Rect texRect;
+  texRect.x = 0;
+  texRect.y = 0;
+  texRect.w = 50;
+  texRect.h= 50;
+
+// sdl_window
+// SDL_FillRect()
+
+
+
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
 
@@ -60,46 +81,13 @@ void Renderer::Render( std::vector<Obstacle*> obst, std::vector<Car*> carObjects
 
 
 
-  // Render snake's body
-  // SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-  // for (SDL_Point const &point : snake.body) {
-  //   block.x = point.x * block.w;
-  //   block.y = point.y * block.h;
-  //   SDL_RenderFillRect(sdl_renderer, &block);
-  // }
+SDL_RenderCopy(sdl_renderer,tex,NULL, &texRect);
+  //SDL_BlitSurface(endbmp,NULL,winSurface,NULL);
+  //SDL_RenderFillRect(sdl_renderer, &block);
+SDL_RenderPresent(sdl_renderer);
+ if(endbmp == NULL)std::cout<<"err";
 
-  // // Render snake's head
-  // block.x = static_cast<int>(snake.head_x) * block.w;
-  // block.y = static_cast<int>(snake.head_y) * block.h;
-  // if (snake.alive) {
-  //   SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
-  // } else {
-  //   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
-  // }
-  // SDL_RenderFillRect(sdl_renderer, &block);
-
-//render the center block
-// SDL_SetRenderDrawColor(sdl_renderer, 0xC0, 0xC0, 0xC0, 0x11);
-//   int xcenter = screen_width/2;
-//   int ycenter = screen_height/2;
-
-//   block.h = grid_height * 4;
-//   block.w = grid_width * 4;
-
-//   block.x = xcenter - (block.w/2);
-//   block.y = ycenter - (block.h/2);
-// SDL_RenderFillRect(sdl_renderer, &block);
-
-// //reset block width and height 
-
-//   block.h = grid_height ;
-//   block.w = grid_width ;
-
-// // Render The mine
-//   SDL_SetRenderDrawColor(sdl_renderer, 0xCC, 0xFF, 0xCC, 0xFF);
-//   block.x = mine.get_xpos();
-//   block.y = mine.get_ypos();
-//   SDL_RenderFillRect(sdl_renderer, &block);
+ 
 
 
 //render mines
@@ -129,6 +117,12 @@ SDL_SetRenderDrawColor(sdl_renderer, 0x99, 0x00, 0xFF, 0xFF);
     block.x = c->get_xpos();
     block.y = c->get_ypos();
     SDL_RenderFillRect(sdl_renderer, &block);
+
+    block.h = 40;
+    block.w=40;
+    SDL_RenderCopy(sdl_renderer,texCar,NULL, &block);
+    SDL_RenderPresent(sdl_renderer);
+
   }
 
 
@@ -139,6 +133,6 @@ SDL_SetRenderDrawColor(sdl_renderer, 0x99, 0x00, 0xFF, 0xFF);
 }
 
 void Renderer::UpdateWindowTitle(int score, int fps) {
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
+  std::string title{"Your Score: [" + std::to_string(score) + "]  highst score = ["+ std::to_string(Mycontroller::highestScore) + "] FPS: " + std::to_string(fps)};
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }

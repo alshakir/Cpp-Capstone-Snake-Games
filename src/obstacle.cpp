@@ -101,7 +101,7 @@
             }
 
             for (int i = 0 ; i<2 ; i++){
-                if((abs(get_xpos() - _cars[i]->get_xpos()) <5 && (abs(get_ypos() - _cars[i]->get_ypos()) < 5))){
+                if((abs(get_xpos() - _cars[i]->get_xpos()) < _collision_distance  && (abs(get_ypos() - _cars[i]->get_ypos()) < _collision_distance ))){
                     _cars[i]->deactivate();
                 }
             }

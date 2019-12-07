@@ -115,6 +115,7 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/game.h
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/main.cpp
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/mine.h
+ /home/shakir/capstone/CppND-Capstone-Snake-Game/src/mycontroller.h
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/obstacle.h
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/renderer.h
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/snake.h
@@ -222,6 +223,7 @@ CMakeFiles/SnakeGame.dir/src/obstacle.cpp.o
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/car.h
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/mine.h
+ /home/shakir/capstone/CppND-Capstone-Snake-Game/src/mycontroller.h
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/obstacle.h
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/renderer.cpp
  /home/shakir/capstone/CppND-Capstone-Snake-Game/src/renderer.h

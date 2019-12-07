@@ -43,6 +43,7 @@ public:
 
 private:
     int _xpos, _ypos;
+    int _collision_distance = 10;
     int _delay = 25;
     bool _active = true;
     int _speed;

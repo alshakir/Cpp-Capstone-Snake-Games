@@ -10,6 +10,8 @@ public:
     static void HandleInput(bool &running, Car &car1, Car &car2)  ;
     static void control(Car& car, SDL_Event& e);
     static bool switchCars ;
+    static bool quit ;
+    static int highestScore;
 };
 
 

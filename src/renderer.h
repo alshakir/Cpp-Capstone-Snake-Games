@@ -21,6 +21,12 @@ class Renderer {
  private:
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;
+  SDL_Surface * winSurface;
+  
+  SDL_Surface * endbmp;
+  SDL_Surface* carBmp;
+  SDL_Texture* tex;
+  SDL_Texture* texCar;
 
   const std::size_t screen_width;
   const std::size_t screen_height;

@@ -9,12 +9,15 @@
 //   return;
 // }
 bool Mycontroller::switchCars = true;
+bool Mycontroller::quit = false;
+int Mycontroller::highestScore =0;
 
 void Mycontroller::HandleInput(bool &running, Car &car1, Car &car2)  {
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
         running = false;
+        quit = true;
       } else if (e.type == SDL_KEYDOWN) {
         std::cout << "Mycontroller::switchCars ="<< Mycontroller::switchCars << std::endl;
           if(Mycontroller::switchCars){

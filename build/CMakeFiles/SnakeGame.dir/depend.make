@@ -114,6 +114,7 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/controller.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/game.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/mine.h
+CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/mycontroller.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/obstacle.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/renderer.h
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/snake.h
@@ -221,6 +222,7 @@ CMakeFiles/SnakeGame.dir/src/obstacle.cpp.o: ../src/obstacle.h
 
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/car.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/mine.h
+CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/mycontroller.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/obstacle.h
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/renderer.cpp
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/renderer.h

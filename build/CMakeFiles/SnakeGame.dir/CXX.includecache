@@ -52,16 +52,6 @@ snake.h
 mine.h
 /home/shakir/capstone/CppND-Capstone-Snake-Game/src/mine.h
 
-/home/shakir/capstone/CppND-Capstone-Snake-Game/src/main.cpp
-iostream
--
-controller.h
-/home/shakir/capstone/CppND-Capstone-Snake-Game/src/controller.h
-game.h
-/home/shakir/capstone/CppND-Capstone-Snake-Game/src/game.h
-renderer.h
-/home/shakir/capstone/CppND-Capstone-Snake-Game/src/renderer.h
-
 /home/shakir/capstone/CppND-Capstone-Snake-Game/src/mine.h
 string
 -

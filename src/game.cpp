@@ -27,8 +27,8 @@ void Game::Run( Renderer &renderer,
   bool running = true;
 
 
-      Car car1 {635, 630, 640,-1, "horizontal"};
-      Car car2 {630, 635, 640, -1, "vertical"};
+      Car car1 {470, 510, 640,-1, "horizontal"};
+      Car car2 {605, 515, 640, -1, "vertical"};
 
       std::vector<std::thread> cars ;
       cars.emplace_back(std::thread(&Car::move, &car1));
@@ -86,14 +86,16 @@ std::vector<std::thread> obstacleThreads;
     if(car1.isActive()==false && car2.isActive() ==false){
        if(car1.get_success()==true && car2.get_success() ==true){
           running = false;
+          score++;
+          score *= level;
           for(auto& o : obstacles){
             o.deactivate();
           }
       }else{
 
       car1.set_xpos(600);
-      car1.set_ypos(600);
-      car2.set_xpos(600);
+      car1.set_ypos(500);
+      car2.set_xpos(500);
       car2.set_ypos(600);
       car1.set_active(true);
       car2.set_active(true);
